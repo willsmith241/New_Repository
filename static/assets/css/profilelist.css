@@ -1,0 +1,258 @@
+/* Basic Reset */
+/* Basic Reset */
+
+.body, h1, h2, h3, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.body {
+    font-family: Arial, sans-serif;
+   color:white; /* Example background color */
+}
+
+/* Header styling */
+header {
+    background: rgba(0, 0, 0, 0.0); /* Dark background for the header */
+    color: #ffff; /* White text color */
+    padding: 10px 20px;
+}
+
+header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navmenu {
+    display: flex;
+    align-items: center;
+}
+
+.navmenu ul {
+    display: flex;
+    list-style: none;
+}
+
+.navmenu li {
+    margin: 0 10px;
+}
+
+.navmenu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.navmenu a:hover,
+.navmenu a:focus {
+     position: relative;
+  text-decoration: underline;
+  color: red;
+
+  transition: color 0.4s; /* Gold color on hover */
+}
+
+/* Button styling */
+.btn-getstarted {
+    background-color: #007bff; /* Blue background for the button */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.btn-getstarted:hover,
+.btn-getstarted:focus {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Mobile navigation styling */
+.mobile-nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.mobile-nav-toggle:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navmenu ul {
+        display: none; /* Hide menu items on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+    }
+
+    .navmenu ul.active {
+        display: flex; /* Show menu items when active */
+    }
+
+    .navmenu li {
+        margin: 0;
+    }
+
+    .navmenu a {
+        padding: 15px;
+        display: block;
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show mobile menu toggle */
+    }
+}
+
+
+
+body, h2, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #323865;
+    background-image: url("https://media.istockphoto.com/id/1185208100/photo/internet-surfing.jpg?s=612x612&w=0&k=20&c=609i01RvyG_brEIlp-Jqfbu0VfzVO5jDT9YcfrspN0c=");
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    position: relative; /* Ensure the pseudo-element is positioned relative to the body */
+    height: 100vh;
+    margin: 0;
+}
+
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.0); /* Black color with 50% opacity */
+    z-index: 1; /* Ensure the overlay is above the background image but below the content */
+}
+
+.container {
+    position: relative; /* Ensure the content is above the overlay */
+    z-index: 2; /* Make sure the content is above the pseudo-element */
+    color: #fff; /* Text color for better contrast */
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.profile-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile-card {
+    margin-top:110px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(33.333% - 20px); /* Adjust width to fit your design needs */
+    transition: transform 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-image {
+      width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the circle */
+    margin: 15px auto; /* Centers the image */
+    display: block;
+}
+
+.profile-info {
+    padding: 15px;
+    text-align: center; /* Centers text inside the card */
+}
+
+.profile-name {
+
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-title {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.profile-bio {
+    margin-bottom: 1rem;
+}
+
+.profile-contact, .profile-address, .profile-skills {
+    margin-bottom: 0.5rem;
+}
+
+.profile-links {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.btn-linkedin {
+    background-color: #0077b5;
+}
+
+.btn-website {
+    background-color: #28a745;
+}
+
+.btn-details {
+    background-color: #007bff;
+}
+
+.btn-update {
+    background-color: #ffc107;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.profile-actions {
+    margin-top: 1rem;
+}
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet ">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'assets/css/profilelist.css' %}">
+
+</head>
+<body>
+<body class="bbody">
+<header id="header" class="headerr d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+
+      </a>
+
+      <nav id="navmenu" class="navmenu" style="color:white;" >
+        <ul style="color:white;">
+          <li><a href="{% url 'home' %}" class="active">Home</a></li>
+          <li><a href="{% url 'about' %}" style="color:white;">About</a></li>
+          <li><a href="index.html#services" style="color:white;">Services</a></li>
+          <li><a href="{% url 'portfolio' %}" style="color:white;">Portfolio</a></li>
+          <li><a href="{% url 'profilelist' %}" style="color:white;">Profiles</a></li>
+          <li><a href="index.html#contact" style="color:white;">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" style="margin:10px;" href="{% url 'register' %}">Add Profile</a>
+
+
+    </div>
+  </header>
+
+
+
+
+
+
+<div class="container">
+        <div class="profile-cards">
+            {% for profile in page %}
+                <div class="profile-card">
+                    <img src="{{ profile.image.url }}" alt="{{ profile.name }}" class="profile-image">
+                    <div class="profile-info">
+                        <h2 class="profile-name">{{ profile.name }}</h2>
+                        <p class="profile-title">{{ profile.title }}</p>
+                        <p class="profile-bio">{{ profile.bio }}</p>
+                        <p class="profile-contact"><strong>Contact:</strong> {{ profile.contact }}</p>
+                        <p class="profile-address"><strong>Address:</strong> {{ profile.address }}</p>
+                        <p class="profile-skills"><strong>Skills:</strong> {{ profile.skills }}</p>
+                        <div class="profile-links">
+                            <a href="{{ profile.linkdin }}" class="btn btn-linkedin">LinkedIn</a>
+                            <a href="{{ profile.website }}" class="btn btn-website">Website</a>
+                        </div>
+                        <div class="profile-actions">
+                            <a href="#" class="btn btn-details">Massage</a>
+                            <a href="#" class="btn btn-update">Follow</a>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if page.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+      {% endif %}
+
+      {% for num in page.paginator.page_range %}
+
+    <li class="page-item {% if page.number == num %}activate{% endif %}" >
+        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+    </li>
+
+      {% endfor %}
+
+
+      {% if page.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+      {% endif %}
+
+  </ul>
+</nav>
+
+
+
+
+</body>
+</html>
