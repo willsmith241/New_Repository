@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'profiles',
     'authentic',
 
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.example.com'  # Replace with your SMTP server
+# EMAIL_PORT = 587  # Typically 587 for TLS, 465 for SSL
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@example.com'
+# EMAIL_HOST_PASSWORD = 'sheer9191'
+# DEFAULT_FROM_EMAIL = 'your-email@example.com'
+

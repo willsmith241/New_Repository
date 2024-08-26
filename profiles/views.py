@@ -3,6 +3,11 @@ from django.shortcuts import render
 from django.shortcuts import render,redirect
 from .models import Profile
 from .forms import ProfileForm
+from django.conf import settings
+
+from django.core.mail import send_mail
+
+
 
 # Create your views here.
 def Home(request):
@@ -21,10 +26,10 @@ def Home(request):
 #         else:
 #             form=ProfileForm()
 #
-#     return render(request,'contact.html', {'form':form})
+#     return render(request,'home.html', {'form':form})
 
 def home(request):
-    return render(request,'contact.html')
+    return render(request,'home.html')
 
 def Profile_create(request):
 
@@ -70,6 +75,29 @@ def about(request):
     return render(request,'about.html')
 
 
+# def contact_view(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             subject = form.cleaned_data['subject']
+#             message = form.cleaned_data['message']
+#
+#             # Send the email
+#             send_mail(
+#                 subject=f'New message from: {name}',
+#                 message=f'Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage:\n{message}',
+#                 from_email=email,
+#                 recipient_list=[settings.DEFAULT_FROM_EMAIL],
+#             )
+#             # Redirect or render a success page
+#             return redirect('contact_success')
+#     else:
+#         form = ContactForm()
+#
+#     return render(request, 'contact.html', {'form': form})
 
-
+def contact(request):
+    return render(request,'contact.html')
 
